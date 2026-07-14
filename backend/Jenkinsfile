@@ -6,7 +6,8 @@ pipeline {
 
         stage('Clone') {
             steps {
-                git 'https://github.com/Ritikasuneriya/reet-flask-app.git'
+                  git branch: 'main',
+                    url: 'https://github.com/Ritikasuneriya/reet-flask-app.git'
             }
         }
 
