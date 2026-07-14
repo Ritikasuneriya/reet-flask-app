@@ -1,0 +1,30 @@
+pipeline {
+
+    agent any
+
+    stages {
+
+        stage('Clone') {
+            steps {
+                git 'https://github.com/Ritikasuneriya/reet-flask-app.git'
+            }
+        }
+
+        stage('Install') {
+            steps {
+                sh 'npm install'
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                sh '''
+                pm2 restart express-app || pm2 start server.js \
+                --name express-app
+                '''
+            }
+        }
+
+    }
+
+}
