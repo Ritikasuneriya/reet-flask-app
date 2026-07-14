@@ -1,0 +1,35 @@
+pipeline {
+
+    agent any
+
+    stages {
+
+        stage('Clone') {
+            steps {
+                git 'https://github.com/Ritikasuneriya/reet-flask-app.git'
+            }
+        }
+
+        stage('Install Dependencies') {
+            steps {
+                sh '''
+                python3 -m venv venv
+                . venv/bin/activate
+                pip install -r requirements.txt
+                '''
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                sh '''
+                pm2 restart flask-app || pm2 start app.py \
+                --interpreter python3 \
+                --name flask-app
+                '''
+            }
+        }
+
+    }
+
+}
