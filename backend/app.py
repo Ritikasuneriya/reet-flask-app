@@ -14,7 +14,7 @@ def home():
 def api():
     return jsonify({
         "name":"Ritika",
-        "course":"DevOps"
+        "course":"DevOps and cloud"
     })
 
 if __name__ == "__main__":
