@@ -25,6 +25,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
+                cd backend
                 pm2 restart flask-app || pm2 start app.py \
                 --interpreter python3 \
                 --name flask-app

@@ -21,6 +21,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh '''
+                cd frontend
                 pm2 restart express-app || pm2 start server.js \
                 --name express-app
                 '''
