@@ -7,7 +7,7 @@ app.get("/",async(req,res)=>{
 
     try{
 
-        const response=await axios.get("http://3.95.25.102:5000/api");
+        const response=await axios.get("http://98.90.200.55:5000/api");
 
         res.send(`
         <h1>Express Frontend</h1>
