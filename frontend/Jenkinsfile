@@ -13,8 +13,11 @@ pipeline {
 
         stage('Install') {
             steps {
+                
+                sh '''
                 cd frontend
-                sh 'npm install'
+                npm install
+                '''
             }
         }
 
